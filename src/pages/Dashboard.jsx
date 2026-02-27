@@ -10,24 +10,26 @@ function Dashboard() {
   const [displayProducts, setDisplayProducts] = useState([]);
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const loadProducts = async () => {
       const data = await fetchProducts();
       setProducts(data);
       setDisplayProducts(data);
+      setTimeout(() => setAnimate(true), 50);
     };
     loadProducts();
   }, []);
 
   const handleAsk = async (query) => {
+    setAnimate(false);
     setLoading(true);
     try {
       const result = await askAI(query, products);
       const filtered = products.filter((p) =>
         result.productIds.includes(p.id)
       );
-
       setDisplayProducts(filtered);
       setSummary(result.summary);
     } catch {
@@ -37,20 +39,18 @@ function Dashboard() {
   };
 
   return (
-    <div className="min-h-full bg-gray-100 py-6">
-      <div className="max-w-6xl mx-auto px-6 w-full">
-        <AskBox onAsk={handleAsk} />
+    <div className="w-full">
+      <AskBox onAsk={handleAsk} />
 
-        {loading && (
-          <p className="text-center text-blue-600 mt-4">
-            AI is thinking...
-          </p>
-        )}
+      {loading && (
+        <p className="text-center text-green-600 mt-4">
+          AI is thinking...
+        </p>
+      )}
 
-        {summary && <AISummary summary={summary} />}
+      {summary && <AISummary summary={summary} />}
 
-        <ProductList products={displayProducts} />
-      </div>
+      <ProductList products={displayProducts} animate={animate} />
     </div>
   );
 }
