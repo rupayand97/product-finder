@@ -22,7 +22,7 @@ function AskBox({ onAsk }) {
         className="flex-1 px-4 py-2 rounded-lg 
                    bg-gray-800 text-white
                    border border-gray-600 
-                   placeholder-white
+                   placeholder-gray-500
                    focus:outline-none focus:ring-2 focus:ring-olive-500"
       />
 
