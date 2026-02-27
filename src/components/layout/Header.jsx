@@ -16,10 +16,7 @@ function Header() {
 
   return (
     <>
-      {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-50 h-[62px] flex items-center justify-between px-6 bg-black/95 backdrop-blur-sm shadow-lg border-b border-gray-800 overflow-hidden">
-        
-        {/* Background Image Overlay */}
         <div className="absolute inset-0 opacity-50">
           <img
             src="/header-bg.png"
@@ -28,7 +25,6 @@ function Header() {
           />
         </div>
 
-        {/* LEFT SIDE - Logo + Text */}
         <div className="relative z-10 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-700">
             <img
@@ -42,13 +38,10 @@ function Header() {
             <h1 className="text-white text-sm sm:text-base font-semibold tracking-wide">
               Product Finder
             </h1>
-            <span className="text-xs text-gray-300">
-              AI-powered discovery
-            </span>
+            <span className="text-xs text-gray-300">AI-powered discovery</span>
           </div>
         </div>
 
-        {/* RIGHT SIDE - Logout */}
         <div className="relative z-10 flex items-center">
           <button
             onClick={handleLogout}
@@ -67,11 +60,9 @@ function Header() {
         </div>
       </header>
 
-      {/* LOGOUT CONFIRMATION MODAL */}
       {showLogoutConfirm && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-[1000]">
           <div className="bg-gray-900 border border-gray-700 rounded-xl p-8 flex flex-col items-center max-w-sm w-full mx-4 shadow-2xl">
-            
             <div className="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center mb-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

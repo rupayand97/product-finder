@@ -18,7 +18,6 @@ function Sidebar({ collapsed, setCollapsed }) {
       text-white transition-all duration-300 z-40 
       ${collapsed ? "w-16" : "w-56"}`}
     >
-      {/* Toggle Button */}
       <div className="flex justify-end p-4">
         <button
           onClick={() => setCollapsed(!collapsed)}
@@ -26,30 +25,52 @@ function Sidebar({ collapsed, setCollapsed }) {
                      bg-gray-800 hover:bg-indigo-600 
                      transition-all duration-300 shadow-md"
         >
-          {collapsed ? (
-            <ChevronRight size={16} />
-          ) : (
-            <ChevronLeft size={16} />
-          )}
+          {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
       </div>
-
-      {/* Menu */}
       <nav className="flex flex-col gap-2 px-4">
-        <SidebarItem icon={<FaHome />} label="Dashboard" collapsed={collapsed} />
-        <SidebarItem icon={<FaBoxOpen />} label="Products" collapsed={collapsed} />
-        <SidebarItem icon={<FaRobot />} label="AI Assistant" collapsed={collapsed} />
+        <SidebarItem
+          icon={<FaHome />}
+          label="Dashboard"
+          collapsed={collapsed}
+        />
+        <SidebarItem
+          icon={<FaBoxOpen />}
+          label="Products"
+          collapsed={collapsed}
+        />
+        <SidebarItem
+          icon={<FaRobot />}
+          label="AI Assistant"
+          collapsed={collapsed}
+        />
 
         <div className="my-3 border-t border-gray-800" />
 
-        <SidebarItem icon={<FaTags />} label="Categories" collapsed={collapsed} />
-        <SidebarItem icon={<FaShoppingCart />} label="Orders" collapsed={collapsed} />
-        <SidebarItem icon={<FaChartBar />} label="Analytics" collapsed={collapsed} />
+        <SidebarItem
+          icon={<FaTags />}
+          label="Categories"
+          collapsed={collapsed}
+        />
+        <SidebarItem
+          icon={<FaShoppingCart />}
+          label="Orders"
+          collapsed={collapsed}
+        />
+        <SidebarItem
+          icon={<FaChartBar />}
+          label="Analytics"
+          collapsed={collapsed}
+        />
 
         <div className="my-3 border-t border-gray-800" />
 
         <SidebarItem icon={<FaCog />} label="Settings" collapsed={collapsed} />
-        <SidebarItem icon={<FaQuestionCircle />} label="Help" collapsed={collapsed} />
+        <SidebarItem
+          icon={<FaQuestionCircle />}
+          label="Help"
+          collapsed={collapsed}
+        />
       </nav>
     </div>
   );

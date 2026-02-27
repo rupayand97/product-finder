@@ -28,9 +28,7 @@ function App() {
     setLoading(true);
     try {
       const result = await askAI(query, products);
-      const filtered = products.filter((p) =>
-        result.productIds.includes(p.id)
-      );
+      const filtered = products.filter((p) => result.productIds.includes(p.id));
 
       setDisplayProducts(filtered);
       setSummary(result.summary);
@@ -45,7 +43,6 @@ function App() {
       <Header />
       <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
 
-      {/* Main Content */}
       <main
         className={`absolute top-[62px] right-0 bottom-0 
         p-6 overflow-y-auto transition-all duration-300 
@@ -55,9 +52,7 @@ function App() {
         <AskBox onAsk={handleAsk} />
 
         {loading && (
-          <p className="text-center text-green-600 mt-4">
-            AI is thinking...
-          </p>
+          <p className="text-center text-green-600 mt-4">AI is thinking...</p>
         )}
 
         {summary && <AISummary summary={summary} />}
